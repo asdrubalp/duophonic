@@ -1,0 +1,463 @@
+/* Archivo: src/style.css */
+@font-face {
+    font-family: 'Bauhaus Olga 1933';
+    src: url('Font/bauhaus_olga_1933/Bauhaus Olga 1933-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Bauhaus Olga 1933';
+    src: url('Font/bauhaus_olga_1933/Bauhaus Olga 1933-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #222222;
+    overflow-x: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.barra-superior-vinilos {
+    height: 75px; 
+    width: 102%;
+    background-color: #e5d574; 
+    background-image: url('img/cosodearriba.png');
+    background-repeat: no-repeat; 
+    background-position: center 31%; 
+    background-size: cover;
+    margin-left: -1%;
+    padding: 0px;
+}
+
+.barra-navegacion {
+    background-color: #f7f6f2;
+    padding: 5px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+}
+
+.imagen-logo {
+    height: 45px; 
+    width: auto;
+    margin-right: 40px;
+    object-fit: contain;
+}
+
+.enlaces-navegacion {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.enlaces-navegacion a {
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 16px;
+    color: #111111;
+}
+
+.enlaces-navegacion a:hover {
+    color: #635384;
+}
+
+.iconos-navegacion {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.iconos-navegacion svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: #111111;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    cursor: pointer;
+}
+
+.seccion-principal {
+    position: relative;
+    min-height: 80vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), url('img/principal.jpg');
+    background-color: #1a1a1a; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 40px 100px;
+}
+
+.boton-flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 45px;
+    height: 35px;
+    background-color: #635384;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #e5d574;
+}
+
+.flecha-izquierda { left: 30px; }
+.flecha-derecha { right: 30px; }
+
+.boton-flecha svg {
+    width: 18px;
+    fill: none;
+    stroke: #e5d574;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.titulo-principal {
+    font-family: 'Bauhaus Olga 1933', sans-serif;
+    font-weight: bold; 
+    font-size: 5rem;
+    color: #e5d574;
+    margin: 0 0 30px 0;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.9);
+}
+
+.texto-derecha {
+    display: block;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.contenedor-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    position: relative;
+}
+
+.subtitulo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    font-size: 1.4rem;
+    color: #e5d574;
+    max-width: 450px;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
+    letter-spacing: 0.5px;
+}
+
+.boton-explorar {
+    background-color: #635384;
+    color: #e5d574;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 30px;
+    font-family: 'Bauhaus Olga 1933', sans-serif;
+    font-weight: bold; 
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 2px #e5d574, 0 4px 10px rgba(0,0,0,0.5); 
+    margin-right: 20px;
+    transition: transform 0.2s;
+    letter-spacing: 1px;
+}
+
+.boton-explorar:hover {
+    transform: scale(1.05);
+}
+
+.puntos-carrusel {
+    position: absolute;
+    bottom: -20px; 
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    z-index: 10; 
+}
+
+.punto-solido {
+    width: 12px;
+    height: 12px;
+    background-color: #e5d574;
+    border-radius: 50%;
+}
+
+.punto-anillo {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid #e5d574;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.punto-anillo::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: #e5d574;
+    border-radius: 50%;
+}
+
+.seccion-coleccion {
+    background-color: #e5d574; 
+    padding: 40px 40px;
+}
+
+.titulo-seccion {
+    font-family: 'Bauhaus Olga 1933', sans-serif !important;
+    font-size: 3rem;
+    color: #493b65;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: 1px;
+}
+
+.cuadricula-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-album {
+    background-color: #493b65; 
+    border-radius: 25px;
+    padding: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-album:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.contenedor-imagen {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.contenedor-imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-album:hover .contenedor-imagen img {
+    transform: scale(1.08);
+}
+
+.estrellas-decoracion {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #e5d574;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.info-album {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-bottom: 15px;
+}
+
+.artista-album {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: #e5d574;
+}
+
+.titulo-album {
+    font-family: 'Bauhaus Olga 1933', sans-serif !important;
+    font-size: 1.6rem;
+    color: #f7f6f2;
+    margin-bottom: 5px;
+    line-height: 1.1;
+}
+
+.generos-album, .ano-album {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    color: #bda773;
+    font-weight: 700;
+}
+
+.boton-carrito {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    background: none;
+    border: none;
+    color: #e5d574;
+    cursor: pointer;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.boton-carrito svg {
+    width: 32px;
+    height: 32px;
+}
+
+.boton-carrito:hover {
+    transform: scale(1.15);
+    color: #f7f6f2;
+}
+
+.seccion-calidad {
+    position: relative;
+    padding: 80px 40px;
+    background-color: #1a1a1a; 
+    overflow: hidden;
+}
+
+.fondo-tocadiscos {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    opacity: 0.5; 
+}
+
+.fondo-tocadiscos img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;
+}
+
+
+.contenedor-calidad {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2; 
+}
+
+.columna-imagen-vinilos {
+    flex: 0 0 200px; 
+}
+
+.marco-amarillo-imagen {
+    background-color: #e5d574; 
+    padding: 15px;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.marco-amarillo-imagen img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.columna-info-calidad {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-calidad {
+    font-family: 'Bauhaus Olga 1933', sans-serif !important;
+    font-size: 3rem;
+    color: #e5d574;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.caja-caracteristicas-translucida {
+    background-color: rgba(73, 59, 101, 0.85); 
+    backdrop-filter: blur(8px); 
+    border-radius: 25px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.item-caracteristica {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.texto-caracteristica p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.15rem;
+    color: #f7f6f2; 
+    line-height: 1.6;
+    margin: 0;
+}
+
+.resalte-amarillo {
+    color: #e5d574;
+    font-weight: 800;
+}
+
+.icono-circular {
+    background-color: #e5d574;
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.1);
+}
+
+.icono-circular svg {
+    width: 35px;
+    height: 35px;
+    stroke: #493b65; 
+}
+

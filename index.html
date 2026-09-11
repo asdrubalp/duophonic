@@ -1,0 +1,202 @@
+<!-- Archivo: index.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Duophonic</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+
+    <div class="barra-superior-vinilos"></div>
+
+    <header class="barra-navegacion">
+        <img src="src/img/logo.png" alt="Logo Duophonic" class="imagen-logo">
+        
+        <nav>
+            <ul class="enlaces-navegacion">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Accesorios</a></li>
+                <li><a href="#">Membresía</a></li>
+                <li><a href="#">Gifts</a></li>
+                <li><a href="#">Blocs</a></li>
+            </ul>
+        </nav>
+        
+        <div class="iconos-navegacion">
+            <svg viewBox="0 0 24 24"><path d="M4 4h16v12l-4 4H4z" /><path d="M16 16v4" /><path d="M16 16h4" /><circle cx="9" cy="10" r="1.5" fill="#111" stroke="none"/><circle cx="14" cy="10" r="1.5" fill="#111" stroke="none"/><path d="M9 14c1 1.5 4 1.5 5 0" /></svg>
+            <svg viewBox="0 0 24 24"><path d="M5 4l7 16 3-6 6-3-16-7z" fill="#fff" /></svg>
+            <svg viewBox="0 0 24 24"><path d="M6 8h12l1 12H5L6 8z" /><path d="M8 8V5a4 4 0 018 0v3" /><circle cx="10" cy="13" r="1.5" fill="#111" stroke="none"/><circle cx="14" cy="13" r="1.5" fill="#111" stroke="none"/><path d="M10 17c1 1.5 3 1.5 4 0" /></svg>
+        </div>
+    </header>
+
+    <main class="seccion-principal">
+        
+        <div class="boton-flecha flecha-izquierda">
+            <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        </div>
+        
+        <h2 class="titulo-principal">
+            ¡Siente la música en su formato<br>
+            <span class="texto-derecha">más puro!</span>
+        </h2>
+        
+        <div class="contenedor-inferior">
+            <p class="subtitulo">
+                Descubre ediciones limitadas, clásicos<br>
+                atemporales y un sonido<br>
+                analógico inigualable.
+            </p>
+
+            <button class="boton-explorar">Explorar Colección</button>
+            
+            <div class="puntos-carrusel">
+                <div class="punto-anillo"></div>
+                <div class="punto-solido"></div>
+                <div class="punto-solido"></div>
+                <div class="punto-solido"></div>
+            </div>
+        </div>
+
+        <div class="boton-flecha flecha-derecha">
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+
+    </main>
+
+    <section class="seccion-coleccion">
+        <h2 class="titulo-seccion">Novedades y Joyas Escondidas</h2>
+        
+        <div class="cuadricula-tarjetas">
+            
+            <article class="tarjeta-album">
+                <div class="contenedor-imagen">
+                    <img src="src/img/img1.jpeg" alt="Portada de La Nueve en el Jardín" loading="lazy">
+                    <span class="estrellas-decoracion">✦✧</span>
+                </div>
+                <div class="info-album">
+                    <p class="artista-album">Ed Maverick</p>
+                    <h3 class="titulo-album">La Nueve en el Jardín</h3>
+                    <p class="generos-album">Folk, Indie, Pop Alternativo</p>
+                    <p class="ano-album">2025</p>
+                </div>
+                <button class="boton-carrito" aria-label="Añadir al carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+            </article>
+
+            <article class="tarjeta-album">
+                <div class="contenedor-imagen">
+                    <img src="src/img/img2.jpeg" alt="Portada de Mirada" loading="lazy">
+                    <span class="estrellas-decoracion">✦✧</span>
+                </div>
+                <div class="info-album">
+                    <p class="artista-album">Ivan Cornejo</p>
+                    <h3 class="titulo-album">Mirada</h3>
+                    <p class="generos-album">Urban, Trap, Pop, R&B</p>
+                    <p class="ano-album">2021</p>
+                </div>
+                <button class="boton-carrito" aria-label="Añadir al carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+            </article>
+
+            <article class="tarjeta-album">
+                <div class="contenedor-imagen">
+                    <img src="src/img/img3.jpeg" alt="Portada de Nuevas Coordenadas" loading="lazy">
+                    <span class="estrellas-decoracion">✦✧</span>
+                </div>
+                <div class="info-album">
+                    <p class="artista-album">Wos</p>
+                    <h3 class="titulo-album">Nuevas Coordenadas</h3>
+                    <p class="generos-album">Rap, Hip Hop, Trap, Música Urbana</p>
+                    <p class="ano-album">2021</p>
+                </div>
+                <button class="boton-carrito" aria-label="Añadir al carrito">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                </button>
+            </article>
+
+        </div>
+    </section>
+
+    <section class="seccion-calidad">
+        
+        <div class="fondo-tocadiscos">
+            <img src="src/img/img5.jpeg" 
+                 alt="Fondo de tocadiscos">
+        </div>
+
+        <div class="contenedor-calidad">
+            
+            <div class="columna-imagen-vinilos">
+                <div class="marco-amarillo-imagen">
+                    <img src="src/img/img4.jpeg" alt="Colección de discos de vinilo apilados" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div class="columna-info-calidad">
+                <h2 class="titulo-calidad">La Calidad que Tu Tocadiscos Merece.</h2>
+                
+                <div class="caja-caracteristicas-translucida">
+                    
+                    <article class="item-caracteristica">
+                        <div class="texto-caracteristica">
+                            <p><span class="resalte-amarillo">Dominio Audiófilo:</span> Prensado de alta fidelidad en 180 gramos para un ruido de superficie mínimo.</p>
+                        </div>
+                        <div class="icono-circular">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="item-caracteristica">
+                        <div class="texto-caracteristica">
+                            <p><span class="resalte-amarillo">Arte de Portada Exclusivo:</span> Incluye inserts de arte, código de descarga digital y letras de canciones.</p>
+                        </div>
+                        <div class="icono-circular">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"></path><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"></path><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"></path>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <article class="item-caracteristica">
+                        <div class="texto-caracteristica">
+                            <p><span class="resalte-amarillo">Empaque Premium:</span> Fundas antiestáticas internas y empaque exterior reforzado para coleccionistas.</p>
+                        </div>
+                        <div class="icono-circular">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 5c-1.5 0-2.8 1.4-3 2-3.5-1.5-11-.3-11 5 0 1.8 0 3 2 4.5V20h4v-2h3v2h4v-4c1-.5 1.5-1 2-1.5 2-2.1 2-5.2 2-5.5 0-1.2-1-2-2-2z"></path><path d="M2 9v1c0 1.1.9 2 2 2h1"></path><circle cx="16" cy="11" r="1"></circle>
+                            </svg>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+</body>
+</html>
