@@ -38,38 +38,107 @@
     </header>
 
     <main class="seccion-principal">
-        
-        <div class="boton-flecha flecha-izquierda">
+                 
+        <div class="boton-flecha flecha-izquierda" id="btn-prev">
             <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         </div>
-        
-        <h2 class="titulo-principal">
-            ¡Siente la música en su formato<br>
-            <span class="texto-derecha">más puro!</span>
-        </h2>
-        
-        <div class="contenedor-inferior">
-            <p class="subtitulo">
-                Descubre ediciones limitadas, clásicos<br>
-                atemporales y un sonido<br>
-                analógico inigualable.
-            </p>
-
-            <button class="boton-explorar">Explorar Colección</button>
-            
-            <div class="puntos-carrusel">
-                <div class="punto-anillo"></div>
-                <div class="punto-solido"></div>
-                <div class="punto-solido"></div>
-                <div class="punto-solido"></div>
-            </div>
-        </div>
-
-        <div class="boton-flecha flecha-derecha">
+        <div class="boton-flecha flecha-derecha" id="btn-next">
             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
 
+        <div class="puntos-carrusel">
+            <div class="punto-carrusel punto-anillo" data-index="0"></div>
+            <div class="punto-carrusel punto-solido" data-index="1"></div>
+            <div class="punto-carrusel punto-solido" data-index="2"></div>
+            <div class="punto-carrusel punto-solido" data-index="3"></div>
+        </div>
+
+        <div class="slide activo" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('src/img/principal.jpg');">
+            <div class="layout-slide-1">
+                <h2 class="titulo-principal">
+                    ¡SIENTE LA MÚSICA EN SU<br>FORMATO<br><span class="texto-derecha">MÁS PURO!</span>
+                </h2>
+                <div class="contenedor-inferior-slide">
+                    <p class="subtitulo">
+                        Descubre ediciones limitadas,<br>clásicos<br>atemporales y un sonido<br>analógico inigualable.
+                    </p>
+                    <button class="boton-explorar">Explorar Colección</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('src/img/WhatsApp\ Image\ 2026-09-13\ at\ 9.30.45\ PM.jpeg');">
+            <div class="layout-centrado">
+                <h2 class="titulo-principal">Novedades cada semana.</h2>
+                <p class="subtitulo texto-centrado">
+                    Mantente al día con nuestros nuevos lanzamientos.<br>Siempre hay algo nuevo que descubrir en nuestra tienda.
+                </p>
+                <button class="boton-explorar">Más información</button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('src/img/WhatsApp\ Image\ 2026-09-13\ at\ 9.30.10\ PM.jpeg');">
+            <div class="layout-centrado">
+                <h2 class="titulo-principal">Únete a nuestra comunidad de amantes del vinilo.</h2>
+                <p class="subtitulo texto-centrado">
+                    Comparte tu pasión por la música, descubre recomenda-<br>ciones y participa en eventos exclusivos. ¡Te esperamos!
+                </p>
+                <button class="boton-explorar">Más información</button>
+            </div>
+        </div>
+
+        <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('src/img/WhatsApp\ Image\ 2026-09-13\ at\ 9.29.08\ PM.jpeg');">
+            <div class="layout-dividido">
+                <div class="caja-izquierda">
+                    <h2 class="titulo-principal alineado-izq">Ediciones limitadas para verdaderos<br>coleccionistas.</h2>
+                </div>
+                <div class="caja-derecha">
+                    <p class="subtitulo alineado-der">
+                        No te pierdas nuestras ediciones especiales y vinilos<br>raros. ¡Hazte con ellos antes de que se agoten!
+                    </p>
+                </div>
+                <button class="boton-explorar btn-centro-abajo">Más información</button>
+            </div>
+        </div>
+
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const slides = document.querySelectorAll('.slide');
+            const puntos = document.querySelectorAll('.punto-carrusel');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            let slideActual = 0;
+
+            function mostrarSlide(index) {
+                slides.forEach(slide => slide.classList.remove('activo'));
+                puntos.forEach(punto => {
+                    punto.classList.remove('punto-anillo');
+                    punto.classList.add('punto-solido');
+                });
+
+                if (index < 0) {
+                    slideActual = slides.length - 1;
+                } else if (index >= slides.length) {
+                    slideActual = 0;
+                } else {
+                    slideActual = index;
+                }
+
+                slides[slideActual].classList.add('activo');
+                puntos[slideActual].classList.remove('punto-solido');
+                puntos[slideActual].classList.add('punto-anillo');
+            }
+
+            btnNext.addEventListener('click', () => mostrarSlide(slideActual + 1));
+            btnPrev.addEventListener('click', () => mostrarSlide(slideActual - 1));
+
+            puntos.forEach((punto, index) => {
+                punto.addEventListener('click', () => mostrarSlide(index));
+            });
+        });
+    </script>
 
     <section class="seccion-coleccion">
         <h2 class="titulo-seccion">Novedades y Joyas Escondidas</h2>
@@ -79,7 +148,12 @@
             <article class="tarjeta-album">
                 <div class="contenedor-imagen">
                     <img src="src/img/img1.jpeg" alt="Portada de La Nueve en el Jardín" loading="lazy">
-                    <span class="estrellas-decoracion">✦✧</span>
+                    <span class="flecha-decoracion">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7"></path>
+                            <path d="M7 7h10v10"></path>
+                        </svg>
+                    </span>
                 </div>
                 <div class="info-album">
                     <p class="artista-album">Ed Maverick</p>
@@ -99,7 +173,12 @@
             <article class="tarjeta-album">
                 <div class="contenedor-imagen">
                     <img src="src/img/img2.jpeg" alt="Portada de Mirada" loading="lazy">
-                    <span class="estrellas-decoracion">✦✧</span>
+                    <span class="flecha-decoracion">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7"></path>
+                            <path d="M7 7h10v10"></path>
+                        </svg>
+                    </span>
                 </div>
                 <div class="info-album">
                     <p class="artista-album">Ivan Cornejo</p>
@@ -119,7 +198,12 @@
             <article class="tarjeta-album">
                 <div class="contenedor-imagen">
                     <img src="src/img/img3.jpeg" alt="Portada de Nuevas Coordenadas" loading="lazy">
-                    <span class="estrellas-decoracion">✦✧</span>
+                    <span class="flecha-decoracion">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M7 17L17 7"></path>
+                            <path d="M7 7h10v10"></path>
+                        </svg>
+                    </span>
                 </div>
                 <div class="info-album">
                     <p class="artista-album">Wos</p>
@@ -197,6 +281,239 @@
             
         </div>
     </section>
+
+    <section class="seccion-todos-vinilos">
+        <div class="contenedor-vinilos-blanco">
+            
+            <div class="cabecera-morada">
+                <h2 class="titulo-led">Todos Los Vinilos</h2>
+            </div>
+            
+            <div class="cuadricula-vinilos-5">
+                
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.34 PM.jpeg" alt="Vinilo 1" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.36 PM.jpeg" alt="Vinilo 2" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/descargar.jpg" alt="Vinilo 3" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.38 PM (1).jpeg" alt="Vinilo 4" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.37 PM (1).jpeg" alt="Vinilo 5" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.37 PM.jpeg" alt="Vinilo 6" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.38 PM (2).jpeg" alt="Vinilo 7" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.38 PM.jpeg" alt="Vinilo 8" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.39 PM.jpeg" alt="Vinilo 9" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.40 PM.jpeg" alt="Vinilo 10" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.41 PM.jpeg" alt="Vinilo 11" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.42 PM.jpeg" alt="Vinilo 12" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.43 PM (1).jpeg" alt="Vinilo 13" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.43 PM.jpeg" alt="Vinilo 14" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+
+                <article class="item-vinilo-simple">
+                    <img src="src/img/WhatsApp Image 2026-09-05 at 6.47.44 PM.jpeg" alt="Vinilo 15" class="img-vinilo-placeholder">
+                    <div class="info-vinilo-simple">
+                        <span class="precio">111$</span>
+                        <button class="btn-carrito-amarillo">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                        </button>
+                    </div>
+                </article>
+                
+            </div>
+
+        </div>
+    </section>
+
+    <section class="pre-footer-vinilos">
+        <div class="logo-pre-footer">
+            <img src="src/img/logo 2.png" alt="Logo Duophonic Píldora" class="img-logo-morado">
+        </div>
+    </section>
+
+    <footer class="pie-de-pagina">
+        <div class="contenedor-footer">
+            
+            <div class="columna-footer col-marca">
+                <img src="src/img/logo 2.png" alt="Logo Duophonic" class="img-logo-morado-pequeno">
+                <h2 class="titulo-duophonic-footer">Duophonic</h2>
+                <p class="copyright">© 2026 Duophonic. Todos los derechos reservados.</p>
+            </div>
+
+            <div class="columna-footer col-nav">
+                <h4 class="titulo-columna-footer">Navegación</h4>
+                <ul class="lista-footer-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Accesorios</a></li>
+                    <li><a href="#">Membresía</a></li>
+                    <li><a href="#">Gifts</a></li>
+                    <li><a href="#">Blocs</a></li>
+                </ul>
+            </div>
+
+            <div class="columna-footer col-pagos">
+                <h4 class="titulo-columna-footer">Suscríbete a novedades</h4>
+                <div class="newsletter-grupo">
+                    <input type="email" class="input-blanco-footer" placeholder="Tu correo electrónico...">
+                    <button class="btn-suscribir">Enviar</button>
+                </div>
+                
+                <h4 class="titulo-columna-footer titulo-metodos">Métodos de Pago</h4>
+                <div class="contenedor-iconos-pago">
+                    <div class="tarjeta-pago" title="Mastercard">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+                    </div>
+                    <div class="tarjeta-pago" title="American Express">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/30/American_Express_logo.svg" alt="American Express">
+                    </div>
+                    <div class="tarjeta-pago" title="Maestro">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Maestro_logo.svg" alt="Maestro">
+                    </div>
+                </div>
+            </div>
+
+            <div class="columna-footer col-sociales">
+                <h4 class="titulo-columna-footer">Síguenos</h4>
+                <div class="contenedor-redes">
+                    <a href="#" class="icono-red-social" aria-label="Instagram">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram">
+                    </a>
+                    <a href="#" class="icono-red-social" aria-label="Facebook">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+                    </a>
+                    <a href="#" class="icono-red-social" aria-label="X (Twitter)">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ce/X_logo_2023.svg" alt="X">
+                    </a>
+                    <a href="#" class="icono-red-social" aria-label="Spotify">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
 </body>
 </html>
