@@ -838,6 +838,10 @@ body {
     .titulo-principal {
         font-size: 2.8rem;
     }
+    
+    .columna-imagen-vinilos {
+        display: none
+    }
 }
 
 @media (max-width: 768px) {
@@ -930,6 +934,10 @@ body {
     .contenedor-redes {
         justify-content: center;
     }
+
+    .columna-imagen-vinilos {
+        display: none
+    }
 }
 
 @media (max-width: 480px) {
@@ -947,5 +955,9 @@ body {
 
     .slide {
         padding: 20px;
+    }
+
+    .columna-imagen-vinilos {
+        display: none
     }
 }
